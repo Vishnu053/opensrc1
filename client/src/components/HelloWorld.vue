@@ -9,13 +9,13 @@
   </tr>
    
   <tr>
-    <td><center style="color:teal;">Create new record</center></td>
+    <td><center style="color:#684FA1;">Create new record</center></td>
     <td><center><input v-model="logosrc"></center></td>
    <td><center><input v-model="title"></center></td>
    <td><center><input v-model="description"></center></td>
   </tr>
   <tr><td></td><td></td><td></td><td><center><button @click="saveNew" style="width:5em;">Save</button></center></td></tr>
-  <tr><td><center style="color:teal;">All Records</center></td></tr>
+  <tr><td><center style="color:#684FA1;">All Records</center></td></tr>
    <tr v-for="item in existing" v-bind:key="item.Title">
     <td>{{item._id}}</td>
     <td><img :src="item.logoSrc" width="250px" height ="250px"></td>
@@ -64,9 +64,13 @@ export default {
       }
        this.$http.post(this.$url + "/posts" , request)
       .then(response=>{
-        console.log(response.data.posts)
+        // console.log(response.data.posts)
         self.existing=[];
         self.getData();
+        self.id="";
+        self.logosrc="";
+        self.title="";
+        self.description="";
       })
       }
       else{
