@@ -8,6 +8,7 @@ app.use(morgan('combined'))
 app.use(bodyParser.json())
 app.use(cors())
 
+// connect to DB
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost:27017/posts');
 var db = mongoose.connection;
@@ -55,4 +56,4 @@ app.post('/posts', (req, res) => {
   })
 })
 
-app.listen(process.env.PORT || 8081)
+app.listen(process.env.PORT || 8085)
